@@ -13,6 +13,7 @@ fi
 # remove libtool files
 find $PREFIX -name '*.la' -delete
 
+autoreconf -fiv
 ./configure --disable-debugging \
 	    --enable-fpm=64bit \
 	    --prefix=$PREFIX
