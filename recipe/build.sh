@@ -24,7 +24,6 @@ autoreconf -fiv
 ./configure --disable-debugging \
 	    --enable-fpm=64bit \
 	    --prefix=$PREFIX
-sed -i~ -e '/-fforce-mem/d;/-fthread-jumps/d;/-fcse-follow-jumps/d;/-fcse-skip-blocks/d;/-fregmove/d' configure
 
 make -j$CPU_COUNT
 make install -j$CPU_COUNT

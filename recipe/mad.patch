@@ -1,0 +1,30 @@
+--- configure.ac.orig	2021-10-21 22:20:54.000000000 +0200
++++ configure.ac	2021-10-21 22:23:11.000000000 +0200
+@@ -140,18 +140,13 @@
+     case "$optimize" in
+ 	-O|"-O "*)
+ 	    optimize="-O"
+-	    optimize="$optimize -fforce-mem"
+ 	    optimize="$optimize -fforce-addr"
+ 	    : #x optimize="$optimize -finline-functions"
+ 	    : #- optimize="$optimize -fstrength-reduce"
+-	    optimize="$optimize -fthread-jumps"
+-	    optimize="$optimize -fcse-follow-jumps"
+-	    optimize="$optimize -fcse-skip-blocks"
+ 	    : #x optimize="$optimize -frerun-cse-after-loop"
+ 	    : #x optimize="$optimize -frerun-loop-opt"
+ 	    : #x optimize="$optimize -fgcse"
+ 	    optimize="$optimize -fexpensive-optimizations"
+-	    optimize="$optimize -fregmove"
+ 	    : #* optimize="$optimize -fdelayed-branch"
+ 	    : #x optimize="$optimize -fschedule-insns"
+ 	    optimize="$optimize -fschedule-insns2"
+@@ -420,7 +415,7 @@
+ 
+ dnl Create output files.
+ 
+-test -n "$arch"     && CFLAGS="$CFLAGS $arch"
++#test -n "$arch"     && CFLAGS="$CFLAGS $arch"
+ test -n "$debug"    && CFLAGS="$CFLAGS $debug"
+ test -n "$optimize" && CFLAGS="$CFLAGS $optimize"
+ test -n "$profile"  && CFLAGS="$CFLAGS $profile" LDFLAGS="$LDFLAGS $profile"
