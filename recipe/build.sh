@@ -13,6 +13,14 @@ fi
 # remove libtool files
 find $PREFIX -name '*.la' -delete
 
+touch AUTHORS ChangeLog NEWS
+mkdir ./config
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./config
+libtoolize
+aclocal
+autoheader
+automake --add-missing
+autoreconf -fiv
 ./configure --disable-debugging \
 	    --enable-fpm=64bit \
 	    --prefix=$PREFIX

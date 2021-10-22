@@ -12,10 +12,10 @@ source:
   url: https://downloads.sourceforge.net/project/{{ name }}/lib{{ name }}/{{ version }}/lib{{ name }}-{{ version }}.tar.gz
   sha256: bbfac3ed6bfbc2823d3775ebb931087371e142bb0e9bb1bee51a76a6e0078690
   patches:
-      - mad.patch
+    - mad.patch
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
   run_exports:
     # seems to be minor version compatibility
@@ -24,9 +24,13 @@ build:
 
 requirements:
   build:
+    - autoconf  # [unix]
+    - automake  # [unix]
+    - gnuconfig  # [unix]
+    - libtool  # [unix]
+    - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - make
 
 test:
   commands:
